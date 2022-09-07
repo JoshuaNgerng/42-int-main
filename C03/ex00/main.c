@@ -5,23 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngerng <jngerng@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 08:27:07 by jngerng           #+#    #+#             */
-/*   Updated: 2022/08/25 17:37:19 by jngerng          ###   ########.fr       */
+/*   Created: 2022/09/06 15:15:12 by jngerng           #+#    #+#             */
+/*   Updated: 2022/09/07 16:51:52 by jngerng          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <string.h>
 
-void    ft_ultimate_div_mod(int *a, int *b);
+int	ft_strcmp(char *s1, char *s2);
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	int	x;
-	int	y;
-
-	x = 9;
-	y = 4;
-	printf("input: '%d', '%d'\n", x, y);
-	ft_ultimate_ft(&x,&y);
-	printf("divide: '%d', remainder: '%d'\n", x, y);
+	int		i;
+	char	*o1;
+	char	*o2;
+	
+	o1 = av[1];
+	o2 = av[2];
+	if (ac == 3)
+	{
+		i = ft_strcmp(&av[1][0], &av[2][0]);
+		printf("%d\n", i);
+		printf("%d\n", strcmp(o1, o2));
+	}
+	else
+		printf("write 2 strings");
 }

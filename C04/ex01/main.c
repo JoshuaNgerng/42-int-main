@@ -5,23 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngerng <jngerng@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 08:27:07 by jngerng           #+#    #+#             */
-/*   Updated: 2022/08/25 17:37:19 by jngerng          ###   ########.fr       */
+/*   Created: 2022/08/31 17:14:47 by jngerng           #+#    #+#             */
+/*   Updated: 2022/08/31 17:58:55 by jngerng          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void    ft_ultimate_div_mod(int *a, int *b);
+void	ft_putstr(char *str);
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	int	x;
-	int	y;
+	int	o;
 
-	x = 9;
-	y = 4;
-	printf("input: '%d', '%d'\n", x, y);
-	ft_ultimate_ft(&x,&y);
-	printf("divide: '%d', remainder: '%d'\n", x, y);
+	(void) ac;
+	ft_putstr(av[1]);
 }

@@ -5,23 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngerng <jngerng@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 08:27:07 by jngerng           #+#    #+#             */
-/*   Updated: 2022/08/25 17:37:19 by jngerng          ###   ########.fr       */
+/*   Created: 2022/09/06 09:52:35 by jngerng           #+#    #+#             */
+/*   Updated: 2022/09/06 10:28:41 by jngerng          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void    ft_ultimate_div_mod(int *a, int *b);
+char	*ft_strjoin(int size, char **strs, char *sep);
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	int	x;
-	int	y;
+	int		i;
+	char	*a;
+	char 	*strs[ac - 1];
+	char 	*sep;
 
-	x = 9;
-	y = 4;
-	printf("input: '%d', '%d'\n", x, y);
-	ft_ultimate_ft(&x,&y);
-	printf("divide: '%d', remainder: '%d'\n", x, y);
+	i = 1;
+	while (i <= ac - 2)
+	{
+		strs[i - 1] = av[i];
+		i ++;
+	}
+	sep = av[ac - 1];
+	a = ft_strjoin(ac - 2, strs, sep);
+	i = 1;
+	while (i <= ac - 2)
+	{
+		printf("%s\n", strs[i - 1]);
+		i ++;
+	}
+	printf("%s\n", sep);
+	printf("%s\n", a);
+	return (0);
 }

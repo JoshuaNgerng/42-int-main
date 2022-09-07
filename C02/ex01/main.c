@@ -5,23 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngerng <jngerng@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 08:27:07 by jngerng           #+#    #+#             */
-/*   Updated: 2022/08/25 17:37:19 by jngerng          ###   ########.fr       */
+/*   Created: 2022/08/25 18:11:42 by jngerng           #+#    #+#             */
+/*   Updated: 2022/09/06 11:13:50 by jngerng          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void    ft_ultimate_div_mod(int *a, int *b);
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	int	x;
-	int	y;
+	unsigned int	n;
+	char			*a;
+	char			*b;
+	char			*c;
 
-	x = 9;
-	y = 4;
-	printf("input: '%d', '%d'\n", x, y);
-	ft_ultimate_ft(&x,&y);
-	printf("divide: '%d', remainder: '%d'\n", x, y);
+	n = 5;
+	a = av[1];
+	b = av[2];
+	printf("dest: %s\n", a);
+	printf("src: %s\n", b);
+	c = ft_strncpy(a, b, n);
+	printf("final(5): %s\n", c);
 }

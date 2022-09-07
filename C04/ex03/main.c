@@ -5,23 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngerng <jngerng@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 08:27:07 by jngerng           #+#    #+#             */
-/*   Updated: 2022/08/25 17:37:19 by jngerng          ###   ########.fr       */
+/*   Created: 2022/08/31 18:08:24 by jngerng           #+#    #+#             */
+/*   Updated: 2022/08/31 19:03:46 by jngerng          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void    ft_ultimate_div_mod(int *a, int *b);
+int	ft_atoi(char *str);
 
-int	main(void)
+void	ft_putnbr(int nb)
 {
-	int	x;
-	int	y;
+	char	o;
 
-	x = 9;
-	y = 4;
-	printf("input: '%d', '%d'\n", x, y);
-	ft_ultimate_ft(&x,&y);
-	printf("divide: '%d', remainder: '%d'\n", x, y);
+	if (nb == -2147483648)
+	{
+		write(1, "-2", 2);
+		nb = 147483648;
+	}
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		nb %= 10;
+	}
+	if (nb < 10)
+	{
+		o = nb + '0';
+		write(1, &o, 1);
+	}
+}
+
+int	main(int ac, char *av[])
+{
+	int	i;
+
+	(void) ac;
+	i = ft_atoi(av[1]);
+	ft_putnbr(i);
+	return (0);
 }

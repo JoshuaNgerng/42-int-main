@@ -5,23 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngerng <jngerng@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 08:27:07 by jngerng           #+#    #+#             */
-/*   Updated: 2022/08/25 17:37:19 by jngerng          ###   ########.fr       */
+/*   Created: 2022/08/29 17:26:36 by jngerng           #+#    #+#             */
+/*   Updated: 2022/09/07 14:55:27 by jngerng          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void    ft_ultimate_div_mod(int *a, int *b);
+char	*ft_strupcase(char *str);
 
-int	main(void)
+void	write_string(char *p)
 {
-	int	x;
-	int	y;
+	char	o;
+	int i;
 
-	x = 9;
-	y = 4;
-	printf("input: '%d', '%d'\n", x, y);
-	ft_ultimate_ft(&x,&y);
-	printf("divide: '%d', remainder: '%d'\n", x, y);
+	i = 0;
+	while (p[i] != '\0')
+	{
+		o = p[i];
+		write(1, &o, 1);
+		i ++;
+	}
+}
+
+int main (int argc, char **argv)
+{
+    if (argc == 2)
+    {
+		write_string(&argv[1][0]);
+		write(1, "\n", 1);
+		ft_strupcase(&argv[1][0]);
+		write_string(&argv[1][0]);
+		write(1, "\n", 1);
+    }
+    else if (argc == 1)
+        write(1, "please enter a string\n", 22);
+    else
+        write(1, "you have entered too many strings", 34);
+    return (0);
 }

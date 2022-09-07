@@ -5,23 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngerng <jngerng@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 08:27:07 by jngerng           #+#    #+#             */
-/*   Updated: 2022/08/25 17:37:19 by jngerng          ###   ########.fr       */
+/*   Created: 2022/08/29 17:16:44 by jngerng           #+#    #+#             */
+/*   Updated: 2022/08/29 17:23:30 by jngerng          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void    ft_ultimate_div_mod(int *a, int *b);
+int ft_str_is_printable(char *str);
 
-int	main(void)
+int main (int argc, char **argv)
 {
-	int	x;
-	int	y;
+    char    *p;
+    char    x;
+    int i;
 
-	x = 9;
-	y = 4;
-	printf("input: '%d', '%d'\n", x, y);
-	ft_ultimate_ft(&x,&y);
-	printf("divide: '%d', remainder: '%d'\n", x, y);
+    if (argc == 2)
+    {
+        p = argv[1];
+        i = ft_str_is_printable(p);
+        if (i == 1)
+            write(1, "the string is all printable\n", 28);
+        else
+            write(1, "the string have other stuff\n", 27);
+    }
+    else if (argc == 1)
+        write(1, "please enter a string\n", 22);
+    else
+        write(1, "you have entered too many strings", 34);
+    return (0);
 }
